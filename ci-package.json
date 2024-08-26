@@ -2,8 +2,20 @@
   "name": "ci",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
     "eslint": "8.57.0",
-    "prettier": "^3.1.0"
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^43.1.1",
+    "eslint-plugin-jsx-a11y": "^6.7.2",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.1.0",
+    "react": "17.0.2"
   }
 }
