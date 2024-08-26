@@ -1,0 +1,42 @@
+name: Lint (New)
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+          cache: "pnpm"
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: |
+          mkdir temp-ci
+          cp ci-package.json temp-ci/package.json
+          cd temp-ci
+          pnpm install
+
+      - name: Run ESLint
+        run: |
+          cd temp-ci
+          pnpm eslint ../index.js
+
+      - name: Run Prettier
+        run: |
+          cd temp-ci
+          pnpm prettier --check ../index.js
