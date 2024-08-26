@@ -1,0 +1,36 @@
+name: Lint (New)
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+          cache: "yarn"
+
+      - name: Prepare CI Environment
+        run: |
+          # Replace package.json with ci-package.json
+          mv ci-package.json package.json
+          
+          # Install dependencies for linting
+          yarn install
+
+      - name: Run ESLint
+        run: yarn eslint index.js
+
+      - name: Run Prettier
+        run: yarn prettier --check index.js
