@@ -22,7 +22,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Run ESLint
         run: npx eslint . --ext .js,.jsx,.ts,.tsx,md
