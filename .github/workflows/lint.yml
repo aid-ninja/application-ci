@@ -34,10 +34,3 @@ jobs:
 
       - name: Run Prettier
         run: yarn prettier --check index.js
-
-      - name: Clean up
-        run: |
-          # Restore original package.json if necessary
-          rm package.json
-          # Optionally, move ci-package.json back if needed
-          mv package.json ci-package.json
