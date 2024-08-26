@@ -21,10 +21,12 @@ jobs:
           node-version: "20.x"
           cache: "pnpm"
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: '9.8.0'
 
-      - name: Install dependencies
+      - name: Create temporary directory and install dependencies
         run: |
           mkdir temp-ci
           cp ci-package.json temp-ci/package.json
