@@ -250,7 +250,6 @@
         "@babel/runtime": ">= 7.20.1",
         "core-js": "= 3.26.1",
         "react-transition-group": ">= 2",
-        "layout-bmfont-text": "./fun.charts/src/renderers/three/factory/text/layout-bmfont-text",
         "css-vendor": ">= 2.0.8",
         "underscore": ">= 1.13.6",
         "minimist": ">= 1.2.7",
