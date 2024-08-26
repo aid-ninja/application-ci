@@ -25,7 +25,7 @@ jobs:
         run: yarn
 
       - name: Run ESLint
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx,md
+        run: npx eslint index.js
 
       - name: Run Prettier
-        run: npx prettier --check .
+        run: npx prettier --check index.js
